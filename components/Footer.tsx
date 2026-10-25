@@ -18,26 +18,38 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-800 bg-[#0C0D0F] text-slate-400 font-sans">
+    <footer className="border-t border-slate-800 bg-[#0C0D0F] text-slate-400 font-sans overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
-        {/* Main 4-Column Grid with generous spacing and overflow protection */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-          {/* Col 1: Law Firm Identity */}
-          <div className="min-w-0 space-y-4 break-words">
-            <Logo variant="light" showSlogan={false} />
-            <p className="text-xs leading-relaxed text-slate-400 break-words">
+        {/* Main 12-Column Responsive Grid with generous spacing and strict overflow protection */}
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          {/* Col 1: Law Firm Identity - Dedicated 4 columns for clean containment */}
+          <div className="lg:col-span-4 min-w-0 max-w-full space-y-4 break-words overflow-hidden">
+            <div className="max-w-full overflow-hidden">
+              <Logo variant="light" size="sm" showSlogan={false} />
+            </div>
+            <p className="text-xs leading-relaxed text-slate-400 break-words max-w-sm">
               A distinguished South African law practice specializing in conveyancing, High Court litigation, deceased estate administration, and constitutional defense.
             </p>
             <p className="text-xs font-serif italic text-[#DFBE7A] break-words">
               &ldquo;{FIRM_DETAILS.slogan}&rdquo;
             </p>
-            <div className="text-[11px] text-slate-500 break-words">
-              Director: <strong className="text-slate-300">Ntebaleng Thobakgale</strong> | LLB (UL)
+
+            {/* Contained Principal & Director credential badge */}
+            <div className="rounded-xl bg-[#141518] border border-slate-800/90 p-3 text-xs text-slate-400 min-w-0 max-w-full overflow-hidden">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-[#C5A059] mb-1">
+                Firm Principal &amp; Director
+              </div>
+              <div className="text-sm font-serif font-bold text-white break-words">
+                Ntebaleng Thobakgale
+              </div>
+              <div className="text-[11px] text-slate-400 mt-0.5 break-words">
+                LLB (UL) &middot; Admitted Attorney, Conveyancer &amp; Notary
+              </div>
             </div>
           </div>
 
-          {/* Col 2: Core Practice Areas */}
-          <div className="min-w-0 space-y-3 break-words">
+          {/* Col 2: Core Practice Areas - 3 columns */}
+          <div className="lg:col-span-3 min-w-0 space-y-3 break-words overflow-hidden">
             <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-white">
               Specialized Services
             </h4>
@@ -63,8 +75,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Navigation & Practice Info */}
-          <div className="min-w-0 space-y-3 break-words">
+          {/* Col 3: Navigation & Practice Info - 2 columns */}
+          <div className="lg:col-span-2 min-w-0 space-y-3 break-words overflow-hidden">
             <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-white">
               Quick Navigation
             </h4>
@@ -102,8 +114,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Chambers Location & Emergency */}
-          <div className="min-w-0 space-y-3.5 text-xs break-words">
+          {/* Col 4: Chambers Location & Emergency - 3 columns */}
+          <div className="lg:col-span-3 min-w-0 space-y-3.5 text-xs break-words overflow-hidden">
             <h4 className="font-serif text-xs font-bold uppercase tracking-wider text-white">
               Polokwane Chambers
             </h4>
@@ -140,9 +152,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Legal Disclaimer & Copyright with generous margins */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-800/80 text-[11px] text-slate-500 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="break-words max-w-xl">
+        {/* Legal Disclaimer & Copyright with generous margins and strict containment */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-800/80 text-[11px] text-slate-500 flex flex-col md:flex-row md:items-center md:justify-between gap-4 min-w-0 overflow-hidden">
+          <p className="break-words min-w-0 max-w-xl leading-relaxed">
             &copy; {currentYear} {FIRM_DETAILS.firmName}. All rights reserved. Registered with the Legal Practice Council (LPC) South Africa.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-slate-400 shrink-0">

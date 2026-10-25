@@ -7,23 +7,30 @@ interface LogoProps {
   className?: string;
   variant?: 'dark' | 'light' | 'gold';
   showSlogan?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export default function Logo({
   className = '',
   variant = 'dark',
   showSlogan = true,
+  size = 'md',
 }: LogoProps) {
   const isLight = variant === 'light';
+  const isSmall = size === 'sm';
 
   return (
     <Link
       href="/"
-      className={`group flex items-center gap-2 sm:gap-3 transition-opacity hover:opacity-95 min-w-0 ${className}`}
+      className={`group flex items-center gap-2 sm:gap-3 transition-opacity hover:opacity-95 min-w-0 max-w-full ${className}`}
       aria-label="Ntebaleng Thobakgale Attorneys Home"
     >
       {/* Emblem SVG with white background matching official signboard */}
-      <div className="relative flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200/90 bg-white p-1.5 shadow-sm ring-1 ring-[#C5A059]/30 transition-transform duration-300 group-hover:scale-105">
+      <div
+        className={`relative shrink-0 flex items-center justify-center rounded-xl border border-slate-200/90 bg-white shadow-sm ring-1 ring-[#C5A059]/30 transition-transform duration-300 group-hover:scale-105 ${
+          isSmall ? 'h-9 w-9 sm:h-10 sm:w-10 p-1' : 'h-10 w-10 sm:h-11 sm:w-11 p-1.5'
+        }`}
+      >
         <svg
           viewBox="0 0 100 100"
           className="h-full w-full"
@@ -79,35 +86,49 @@ export default function Logo({
         </svg>
       </div>
 
-      {/* Typography from Official Signboard - High Contrast & Prominently Visible */}
-      <div className="flex flex-col text-left min-w-0">
-        <div className="flex items-baseline gap-1 sm:gap-1.5 flex-wrap sm:flex-nowrap">
+      {/* Typography from Official Signboard - High Contrast, Properly Contained & Responsive */}
+      <div className="flex flex-col text-left min-w-0 max-w-full overflow-hidden">
+        <div className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0 min-w-0 max-w-full leading-tight">
           <span
-            className={`font-serif text-lg sm:text-2xl font-black tracking-tight leading-tight ${
+            className={`font-serif ${
+              isSmall
+                ? 'text-base sm:text-lg lg:text-xl'
+                : 'text-lg sm:text-2xl'
+            } font-black tracking-tight leading-tight break-words ${
               isLight ? 'text-white' : 'text-slate-900 dark:text-white'
             }`}
           >
             Ntebaleng
           </span>
-          <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-[#C5A059] leading-tight">
+          <span
+            className={`font-serif ${
+              isSmall
+                ? 'text-base sm:text-lg lg:text-xl'
+                : 'text-lg sm:text-2xl'
+            } font-bold tracking-tight text-[#C5A059] leading-tight break-words`}
+          >
             Thobakgale
           </span>
         </div>
-        <div className="flex items-center gap-1 sm:gap-1.5">
+        <div className="flex items-center gap-1 sm:gap-1.5 min-w-0 flex-wrap">
           <span
-            className={`text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase ${
-              isLight ? 'text-slate-200' : 'text-slate-800 dark:text-slate-200'
-            }`}
+            className={`font-bold tracking-[0.16em] uppercase ${
+              isSmall ? 'text-[9px] sm:text-[10px]' : 'text-[10px] sm:text-[11px]'
+            } ${isLight ? 'text-slate-200' : 'text-slate-800 dark:text-slate-200'}`}
           >
             ATTORNEYS
           </span>
-          <span className="text-[#C5A059] text-[9px] sm:text-[10px] font-bold">·</span>
-          <span className="text-[10px] sm:text-[11px] text-[#A37E36] dark:text-[#DFBE7A] font-semibold hidden xs:inline sm:inline">
+          <span className="text-[#C5A059] text-[9px] font-bold">·</span>
+          <span
+            className={`text-[#A37E36] dark:text-[#DFBE7A] font-semibold truncate ${
+              isSmall ? 'text-[9px] sm:text-[10px]' : 'text-[10px] sm:text-[11px]'
+            } hidden xs:inline sm:inline`}
+          >
             Conveyancers · Notaries
           </span>
         </div>
         {showSlogan && (
-          <span className="text-[9px] sm:text-[10px] italic tracking-wide text-slate-500 dark:text-slate-400 font-serif hidden sm:block">
+          <span className="text-[9px] sm:text-[10px] italic tracking-wide text-slate-500 dark:text-slate-400 font-serif hidden sm:block truncate">
             Defending Your Rights with Dignity.
           </span>
         )}
