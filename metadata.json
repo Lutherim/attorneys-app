@@ -1,0 +1,6 @@
+{
+  "name": "Ntebaleng Thobakgale Attorneys",
+  "description": "Premier South African legal practice specializing in conveyancing, litigation, deceased estates, notarial practice, RAF claims, and criminal defense in Polokwane.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
