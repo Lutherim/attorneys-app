@@ -334,8 +334,8 @@ export default function ConsultationBookingModal({
                   />
                 </div>
 
-                <div className="flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-800">
-                  <div className="text-[11px] text-slate-500">
+                <div className="flex flex-col-reverse sm:flex-row items-center sm:justify-between gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+                  <div className="text-[11px] text-slate-500 text-center sm:text-left">
                     Chambers: 162 Marshall St, Polokwane · 015 888 3356
                   </div>
                   <motion.button
@@ -343,7 +343,7 @@ export default function ConsultationBookingModal({
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex items-center gap-2 rounded-xl bg-[#C5A059] px-6 py-2.5 text-xs font-bold text-black shadow-md hover:bg-[#B38F46] disabled:opacity-50"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#C5A059] px-6 py-3 sm:py-2.5 text-xs font-bold text-black shadow-md hover:bg-[#B38F46] disabled:opacity-50"
                   >
                     <Calendar className="h-4 w-4" />
                     <span>{isSubmitting ? 'Confirming...' : 'Confirm Consultation'}</span>

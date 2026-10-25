@@ -198,12 +198,12 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                   </div>
 
                   {/* Consultation CTA */}
-                  <div className="flex flex-wrap items-center gap-3 pt-3">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-3">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => onOpenBooking(undefined, member.name)}
-                      className="flex items-center gap-2 rounded-xl bg-[#C5A059] px-5 py-3 text-xs font-bold text-black shadow-md transition-all hover:bg-[#B38F46]"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#C5A059] px-5 py-3 text-xs font-bold text-black shadow-md transition-all hover:bg-[#B38F46]"
                     >
                       <Calendar className="h-3.5 w-3.5" />
                       <span>Book Consultation With {member.name.split(' ')[0]}</span>
@@ -213,7 +213,7 @@ export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
                       href={`https://wa.me/27723786975?text=${encodeURIComponent(`Hello, I would like to consult with ${member.name} regarding my legal matter.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-xl border border-emerald-500/50 bg-emerald-50 px-4 py-3 text-xs font-semibold text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 hover:bg-emerald-100 transition-colors"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-emerald-500/50 bg-emerald-50 px-4 py-3 text-xs font-semibold text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 hover:bg-emerald-100 transition-colors"
                     >
                       <MessageCircle className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
                       <span>WhatsApp Direct</span>

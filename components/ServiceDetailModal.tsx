@@ -376,8 +376,8 @@ export default function ServiceDetailModal({
                     />
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  <div className="flex flex-col-reverse sm:flex-row items-center sm:justify-between gap-3 pt-2">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center sm:text-left">
                       Protected by Attorney-Client Privilege. Registered under Legal Practice Council.
                     </p>
                     <motion.button
@@ -385,7 +385,7 @@ export default function ServiceDetailModal({
                       whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="flex items-center gap-2 rounded-xl bg-[#C5A059] px-6 py-2.5 text-xs font-bold text-black shadow-md transition-all hover:bg-[#B38F46] disabled:opacity-50"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#C5A059] px-6 py-3 sm:py-2.5 text-xs font-bold text-black shadow-md transition-all hover:bg-[#B38F46] disabled:opacity-50"
                     >
                       <Send className="h-3.5 w-3.5" />
                       <span>{isSubmitting ? 'Submitting Request...' : `Book ${service.title}`}</span>

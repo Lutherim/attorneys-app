@@ -103,13 +103,13 @@ export default function HeroBanner({ onOpenBooking }: HeroBannerProps) {
               Confidential assessment with Director Ntebaleng Thobakgale or senior practice attorneys.
             </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-3">
+            <div className="mt-5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               {/* Primary Book Now Button (Matches Wireframe) */}
               <motion.button
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onOpenBooking}
-                className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#A37E36] px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-[#C5A059]/20 transition-all hover:brightness-110"
+                className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#A37E36] px-6 py-3.5 text-sm font-bold text-black shadow-lg shadow-[#C5A059]/20 transition-all hover:brightness-110 w-full sm:w-auto"
               >
                 <CalendarDays className="h-4 w-4" />
                 <span>Book Now</span>
@@ -118,12 +118,12 @@ export default function HeroBanner({ onOpenBooking }: HeroBannerProps) {
 
               {/* High-converting direct WhatsApp Action */}
               <motion.a
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href={`https://wa.me/27723786975?text=${encodeURIComponent('Hello Director Ntebaleng Thobakgale, I need legal consultation regarding my matter.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl border border-emerald-500/60 bg-emerald-950/40 px-4 py-3.5 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-900/60"
+                className="flex items-center justify-center gap-2 rounded-xl border border-emerald-500/60 bg-emerald-950/40 px-4 py-3.5 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-900/60 w-full sm:w-auto"
               >
                 <MessageCircle className="h-4 w-4 text-emerald-400" />
                 <span>WhatsApp Intake</span>
@@ -131,19 +131,19 @@ export default function HeroBanner({ onOpenBooking }: HeroBannerProps) {
             </div>
 
             {/* Micro proof points */}
-            <div className="mt-4 flex items-center gap-4 border-t border-slate-800 pt-3 text-[11px] text-slate-400">
+            <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-4 border-t border-slate-800 pt-3 text-[11px] text-slate-400">
               <span className="flex items-center gap-1">
-                <ShieldCheck className="h-3.5 w-3.5 text-[#C5A059]" />
+                <ShieldCheck className="h-3.5 w-3.5 text-[#C5A059] shrink-0" />
                 LPC Registered
               </span>
-              <span>·</span>
+              <span className="hidden sm:inline">·</span>
               <span className="flex items-center gap-1">
-                <Award className="h-3.5 w-3.5 text-[#C5A059]" />
+                <Award className="h-3.5 w-3.5 text-[#C5A059] shrink-0" />
                 Fidelity Fund Covered
               </span>
-              <span>·</span>
+              <span className="hidden sm:inline">·</span>
               <span className="flex items-center gap-1">
-                <Building className="h-3.5 w-3.5 text-[#C5A059]" />
+                <Building className="h-3.5 w-3.5 text-[#C5A059] shrink-0" />
                 162 Marshall St, Polokwane
               </span>
             </div>

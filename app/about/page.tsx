@@ -221,10 +221,10 @@ export default function AboutPage() {
                 </div>
 
                 {/* Call to Action Buttons */}
-                <div className="pt-2 flex flex-wrap items-center gap-4">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                   <button
                     onClick={() => setBookingModalOpen(true)}
-                    className="flex items-center gap-2 rounded-xl bg-[#C5A059] px-6 py-3 text-xs font-bold text-black shadow-md hover:bg-[#B38F46] transition-all"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#C5A059] px-6 py-3 text-xs font-bold text-black shadow-md hover:bg-[#B38F46] transition-all"
                   >
                     <Calendar className="h-4 w-4" />
                     <span>Book Consultation with Director</span>
@@ -232,7 +232,7 @@ export default function AboutPage() {
 
                   <Link
                     href="/team"
-                    className="flex items-center gap-1 text-xs font-bold text-slate-800 hover:text-[#C5A059] dark:text-slate-200 transition-colors"
+                    className="w-full sm:w-auto flex items-center justify-center gap-1 text-xs font-bold text-slate-800 hover:text-[#C5A059] dark:text-slate-200 transition-colors py-2"
                   >
                     <span>View Our Legal Team</span>
                     <ArrowRight className="h-3.5 w-3.5" />

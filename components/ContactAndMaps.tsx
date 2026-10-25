@@ -106,40 +106,40 @@ export default function ContactAndMaps() {
 
         {/* WIREFRAME BOTTOM ACTION BAR: [ Contact us | Google Maps | Forms ] */}
         <div className="mt-8 flex justify-center sm:justify-start">
-          <div className="inline-flex rounded-xl bg-[#1A1C20] p-1.5 border border-slate-800 shadow-md">
+          <div className="flex w-full sm:w-auto rounded-xl bg-[#1A1C20] p-1 border border-slate-800 shadow-md">
             <button
               onClick={() => setActiveTab('contact')}
-              className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition-all ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg px-2.5 sm:px-4 py-2 text-xs font-bold transition-all whitespace-nowrap ${
                 activeTab === 'contact'
                   ? 'bg-[#C5A059] text-black shadow-sm'
                   : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <Contact2 className="h-4 w-4" />
+              <Contact2 className="h-4 w-4 shrink-0" />
               <span>Contact Us</span>
             </button>
 
             <button
               onClick={() => setActiveTab('maps')}
-              className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition-all ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg px-2.5 sm:px-4 py-2 text-xs font-bold transition-all whitespace-nowrap ${
                 activeTab === 'maps'
                   ? 'bg-[#C5A059] text-black shadow-sm'
                   : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <Map className="h-4 w-4" />
+              <Map className="h-4 w-4 shrink-0" />
               <span>Google Maps</span>
             </button>
 
             <button
               onClick={() => setActiveTab('forms')}
-              className={`flex items-center gap-2 rounded-lg px-4 py-2.5 text-xs font-bold transition-all ${
+              className={`flex-1 sm:flex-initial flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg px-2.5 sm:px-4 py-2 text-xs font-bold transition-all whitespace-nowrap ${
                 activeTab === 'forms'
                   ? 'bg-[#C5A059] text-black shadow-sm'
                   : 'text-slate-300 hover:text-white hover:bg-slate-800'
               }`}
             >
-              <ClipboardList className="h-4 w-4" />
+              <ClipboardList className="h-4 w-4 shrink-0" />
               <span>Forms & Intake</span>
             </button>
           </div>
@@ -491,8 +491,8 @@ export default function ContactAndMaps() {
                       </label>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2">
-                      <span className="text-[11px] text-slate-400">
+                    <div className="flex flex-col-reverse sm:flex-row items-center sm:justify-between gap-3 pt-2">
+                      <span className="text-[11px] text-slate-400 text-center sm:text-left">
                         Confidential · Direct Law Firm Intake
                       </span>
                       <motion.button
@@ -500,7 +500,7 @@ export default function ContactAndMaps() {
                         whileTap={{ scale: 0.98 }}
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex items-center gap-2 rounded-xl bg-[#C5A059] px-6 py-2.5 text-xs font-bold text-black shadow-md hover:bg-[#B38F46] disabled:opacity-50"
+                        className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-[#C5A059] px-6 py-3 sm:py-2.5 text-xs font-bold text-black shadow-md hover:bg-[#B38F46] disabled:opacity-50"
                       >
                         <Send className="h-3.5 w-3.5" />
                         <span>{isSubmitting ? 'Transmitting...' : 'Submit Case Intake'}</span>

@@ -49,19 +49,21 @@ export default function WhatsAppFloatingWidget() {
     e.preventDefault();
     if (!customMsg.trim()) return;
     const url = `https://wa.me/27723786975?text=${encodeURIComponent(customMsg)}`;
-    window.open(url, '_blank');
     setCustomMsg('');
     setIsOpen(false);
-  };
-
-  const openQuickTopic = (msg: string) => {
-    const url = `https://wa.me/27723786975?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    setIsOpen(false);
+    if (typeof document !== 'undefined') {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end">
       {/* Popover Card */}
       <AnimatePresence>
         {isOpen && (
@@ -70,7 +72,7 @@ export default function WhatsAppFloatingWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 12 }}
             transition={{ duration: 0.2 }}
-            className="mb-3 w-[330px] sm:w-[360px] overflow-hidden rounded-2xl border border-emerald-500/30 bg-[#16171B] text-white shadow-2xl"
+            className="mb-3 w-[calc(100vw-2rem)] max-w-[340px] sm:max-w-[360px] overflow-hidden rounded-2xl border border-emerald-500/30 bg-[#16171B] text-white shadow-2xl"
           >
             {/* Widget Top Banner */}
             <div className="bg-gradient-to-r from-emerald-800 to-emerald-950 p-4 text-white">
@@ -109,9 +111,12 @@ export default function WhatsAppFloatingWidget() {
 
               <div className="space-y-1.5">
                 {quickTopics.map((topic, i) => (
-                  <button
+                  <a
                     key={i}
-                    onClick={() => openQuickTopic(topic.msg)}
+                    href={`https://wa.me/27723786975?text=${encodeURIComponent(topic.msg)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
                     className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-xs transition-colors ${
                       topic.isEmergency
                         ? 'border border-amber-500/40 bg-amber-950/40 text-amber-200 hover:bg-amber-900/60 font-semibold'
@@ -120,7 +125,7 @@ export default function WhatsAppFloatingWidget() {
                   >
                     <span>{topic.label}</span>
                     <ArrowRight className="h-3.5 w-3.5 opacity-60" />
-                  </button>
+                  </a>
                 ))}
               </div>
 
